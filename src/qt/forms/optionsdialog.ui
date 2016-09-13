@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Options</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/gr);</string>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
@@ -489,6 +492,7 @@
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QValueComboBox</class>
