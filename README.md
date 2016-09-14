@@ -1,32 +1,85 @@
+#Omicron Investment Platform
+======================================================================================================================================
+###Introduction
+--------------------------------------------------------------------------------------------------------------------------------------
 
-Omicron development tree
+Omicron (OMC) is a digital blockchain-based asset that accrues interest through two mechanisms: minting and BTC dividends. It is the first step towards having an unbanked investment world where an independent digital currency asset yields returns in an alternate medium of exchange. OMC plans to be a major inflation and investment vehicle for the cryptocurrency community as well as various brick-and-mortar entities. The core principle of Omicron's investment platform is to allow investors to own a digital asset that adds value to itself- just like shares in a dividend-issuing company. Easily transferable for a quick turnover without the need of intermediary brokers, the OMC asset will be the choice dividend vehicle for investors around the globe. Biweekly dividends ensure that no matter the price of the asset, the asset owner always will receive a 0.00001% share of the dividend pool, per Omicron, every 2 weeks. BTC dividends will be funded every 2 weeks through trading on the volatile altcoin market as well as lending capital for margin-trading exchanges (stable interest). The loan interest guarantees a biweekly issuance of dividends, while the altcoin trading revenue is a major bonus, many times greater than loan yields. The trading yields aren't guaranteed biweekly as there may be an occurrence where there is a net loss during the timeframe. A minimum balance of 10,000 OMC in an address will be required to qualify for dividend yields. A BTC address must be associated with the OMC address, which will be done through the main website, and soon through the Omicron client itself.
 
-Omicron is a PoS-based cryptocurrency.
+###Official Omicron Nodes
+--------------------------------------------------------------------------------------------------------------------------------------
 
-Development process
-===========================
+New York (Seednode): 104.131.60.172
+London: 138.68.148.172
 
-Developers work in their own trees, then submit pull requests when
-they think their feature or bug fix is ready.
 
-The patch will be accepted if there is broad consensus that it is a
-good thing.  Developers should expect to rework and resubmit patches
-if they don't match the project's coding conventions (see coding.txt)
-or are controversial.
+###Compilation
+--------------------------------------------------------------------------------------------------------------------------------------
+**How to setup a daemon on a Ubuntu 14.04 x64 system**
 
-The master branch is regularly built and tested, but is not guaranteed
-to be completely stable. Tags are regularly created to indicate new
-stable release versions of Omicron.
+****Set up a swapfile if your system has less than 1.5 GB of memory****
 
-Feature branches are created when there are major new features being
-worked on by several people.
+      fallocate -l 2G /swapfile
+      
+      chown root:root /swapfile
+      
+      chmod 0600 /swapfile
+      
+      mkswap /swapfile
+      
+      swapon /swapfile
+      
+      nano /etc/fstab
 
-From time to time a pull request will become outdated. If this occurs, and
-the pull is no longer automatically mergeable; a comment on the pull will
-be used to issue a warning of closure. The pull will be closed 15 days
-after the warning if action is not taken by the author. Pull requests closed
-in this manner will have their corresponding issue labeled 'stagnant'.
+*Add this to the bottom of the file:* 
 
-Issues with no commits will be given a similar warning, and closed after
-15 days from their last activity. Issues closed in this manner will be 
-labeled 'stale'.
+      */swapfile none swap sw 0 0*
+
+****Begin compilation****
+
+      apt-get update && apt-get upgrade
+      
+      apt-get install ntp unzip git build-essential libssl-dev libdb-dev
+      
+      apt-get install libdb++-dev libboost-all-dev libqrencode-dev
+      
+      aptitude install miniupnpc libminiupnpc-dev
+      
+      git clone https://github.com/Gladimor/Omicron-Investment-Platform.git
+      
+      cd Omicron-Investment-Platform/src/leveldb
+      
+      chmod 755 build_detect_platform
+      
+      make libleveldb.a libmemenv.a
+      
+      cd Omicron-Investment-Platform/src
+      
+      make -f makefile.unix USE_UPNP=1 USE_QRCODE=1 USE_UPNP=1
+      
+      strip omicrond
+      
+      cp omicrond /usr/bin/
+      
+      nano ~/.omicron/omicron.conf
+
+*Add this to the configuration file:* 
+
+      *rpcuser=rpc_user*
+
+      *rpcpassword=rpc_pass*
+
+      *rpcallowip=127.0.0.1*
+
+      *listen=1*
+
+      *server=1*
+
+      *txindex=1*
+
+      *daemon=1*
+
+*Run the daemon*
+
+      omicrond
+
+
