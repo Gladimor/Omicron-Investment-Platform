@@ -73,7 +73,8 @@ fallocate -l 2G /swapfile
   omicrond
 
   nano ~/.omicron/omicron.conf
-Add this to the configuration file:
+  
+**Add this to the configuration file:**
 
   rpcuser=rpc_user
 
@@ -88,6 +89,7 @@ Add this to the configuration file:
   txindex=1
 
   daemon=1
-Run the daemon
+  
+**Run the daemon**
 
   omicrond
