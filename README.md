@@ -8,7 +8,7 @@ Official Omicron Nodes
 ------------------------------------
 All official Omicron nodes are hosted in private datacenters managed by professional cloud hosting providers
 
-Toronto (Seednode): 104.131.60.172
+Toronto (Seednode): 159.203.62.235
 
 London: 138.68.148.172
 
