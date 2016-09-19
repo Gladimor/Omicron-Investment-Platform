@@ -2681,8 +2681,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Listen for connections on &lt;port&gt; (default: 8411 or testnet: 18411)</source>
-        <translation>Escuchando conexiones en el puerto &lt;port&gt; (por defecto: 8411 o testnet: 18411)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 8519 or testnet: 18519)</source>
+        <translation>Escuchando conexiones en el puerto &lt;port&gt; (por defecto: 8519 o testnet: 18519)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2741,8 +2741,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="-87"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8412 or testnet: 18412)</source>
-        <translation>Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 8412 o testnet: 18412)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8520 or testnet: 18520)</source>
+        <translation>Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 8520 o testnet: 18520)</translation>
     </message>
     <message>
         <location line="-11"/>
